@@ -21,7 +21,8 @@ output "load_balance_role" {
 output "vpc_id" {
   value = module.vpc.vpc_id
 }
-output "apply_load_balance" {
-  value = "helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller --set clusterName=${data.aws_eks_cluster.cluster.name} --set ingressClass=alb --set region=${data.aws_region.current.id} --set vpcId=${data.aws_vpc.current.id} --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller -n kube-system"
+
+output "region_id" {
+  value = data.aws_region.current.id
 }
 
