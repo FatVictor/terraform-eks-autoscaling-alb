@@ -1,3 +1,3 @@
 variable "region" {
-  default = "ap-southeast-1"
+    default = local.region
 }

@@ -6,5 +6,5 @@ locals {
   max_capacity = 10
   min_capacity = 1
   disk_size = 50
-
+  region = "ap-southeast-1"
 }
