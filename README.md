@@ -37,6 +37,24 @@ NAME                                       STATUS   ROLES    AGE     VERSION
 ip-10-0-2-190.us-west-2.compute.internal   Ready    <none>   6m39s   v1.14.8-eks-b8860f
 ```
 
+## Grant access other account to see cluster in AWS
+
+Run command:
+
+```
+kubectl edit -n kube-system configmap/aws-auth
+```
+
+Add below info under data:
+```
+  mapUsers: |
+    - userarn: arn:aws:iam::<account no>:user/<username>
+      username: <username>
+      groups:
+        - system:masters
+```
+
+
 ## Deploy autoscaler
 
 Run command:
@@ -97,3 +115,8 @@ Then clean up once you've done
 ```
 kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/examples/2048/2048_full_latest.yaml
 ```
+
+## Reporting bugs and contributing
+
+- Want to report a bug or request a feature? Please open [an issue](https://github.com/FatVictor/terraform-eks-autoscaling-alb/issues/new).
+- Want to help us build project? Please submit your pull request
