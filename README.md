@@ -61,7 +61,7 @@ Run command:
 _Please check if there is newer version from GitHub_
 
 ```
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.0/components.yaml
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.2/components.yaml
 ```
 
 Edit `autoscale.yaml`:
@@ -77,7 +77,7 @@ kubectl apply -f autoscale.yaml
 
 ## Deploy Load Balancer
 
-Edit `alb.yaml`:
+Edit `alb.yaml`: 
 
 - Replace `<YOUR LOAD BALANCE ROLE ARN>` with output `load_balance_role`
 - Replace `<YOUR CLUSTER NAME>` with without `cluster_name`
@@ -87,7 +87,7 @@ Edit `alb.yaml`:
 Run commands:
 
 ```
-kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.yaml
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
 ```
 Wait for deployment is completed
 ```
@@ -120,3 +120,9 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-bal
 
 - Want to report a bug or request a feature? Please open [an issue](https://github.com/FatVictor/terraform-eks-autoscaling-alb/issues/new).
 - Want to help us build project? Please submit your pull request
+
+
+## Reference
+
+alb.yml is a custom version of https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/docs/install
+autoscale.yaml is a custom version of https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml
